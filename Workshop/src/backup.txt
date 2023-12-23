@@ -1,0 +1,99 @@
+// ABSTRACTION
+// abstract class LibraryTemplate{
+//     public abstract void add(Book book);
+//     public abstract void checkout(Book book, Member member, int due);
+//     public abstract void checkin(Book book, Member member);
+//     public abstract int calculateDues(Member member, int today);
+// }
+
+// class Library extends LibraryTemplate{
+//     static final int DUE_FINE = 100;
+
+//     ArrayList<Book> books = new ArrayList<>();
+//     ArrayList<Member> members = new ArrayList<>();
+//     ArrayList<Loan> loans = new ArrayList<>();
+
+//     Library(){}
+
+//     // Polymorphism
+//     public void add(Book book){
+//         books.add(book);
+//     }
+
+//     public void add(Member member){
+//         members.add(member);
+//     }
+
+//     public void add(Loan loan){
+//         loans.add(loan);
+//     }
+
+//     public void checkout(Book book, Member member, int due){
+//         Loan assign = new Loan(book, member, due);
+//         loans.add(assign);
+//         System.out.println(member.name + " CHECKED OUT: " + book.title);
+//     }
+
+//     public void checkin(Book book, Member member){
+//         String bookName = book.title;
+//         String memberName = member.name;
+
+//         for(int i=0; i<loans.size(); i++){
+//             if(loans.get(i).book.title == bookName && loans.get(i).member.name == memberName){
+//                 loans.remove(i);
+//                 System.out.println(member.name + " CHECKED IN: " + book.title);
+//             }
+//         }
+//     }
+
+//     public int calculateDues(Member member, int today){  //YYYY-MM-DD
+//         int totalDues = 0;
+
+//         for(int i=0; i<loans.size(); i++){
+//             if(loans.get(i).member.name == member.name && loans.get(i).due > today){
+//                 totalDues += DUE_FINE;
+//             }
+//         }
+
+//         return totalDues;
+//     }
+
+//     public void display(){
+//         Scanner scanner = new Scanner(System.in);
+
+//         System.out.println("DISPLAY: \n1.Books \n2.Members \n3. OverDue Books");
+        
+//         System.out.println("ENTER OPTION: ");
+//         int option = scanner.nextInt();
+//         scanner.nextLine(); //Consume New Line
+
+//         switch (option) {
+//             case 1:
+//                 for(int i=0; i<books.size(); i++){
+//                     System.out.println(i+1 + ") " + books.get(i).title);
+//                 }
+//                 break;
+        
+//             case 2:
+//                 for(int i=0; i<members.size(); i++){
+//                     System.out.println(i+1 + ") " + members.get(i).name);
+//                 }
+//                 break;
+        
+//             case 3:
+//                 System.out.println("ENTER TODAY's DATE:- ");
+//                 int todayDate = scanner.nextInt();
+//                 scanner.nextLine();
+//                 for(int i=0; i<loans.size(); i++){
+//                     if(loans.get(i).due < todayDate){
+//                         System.out.println(i+1 + ") " + loans.get(i).book.title);
+//                     }
+//                 }
+//                 break;
+        
+//             default:
+//                 System.out.println("ERROR");
+//                 break;
+//         }
+//     }
+// } 
